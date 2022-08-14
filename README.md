@@ -7,8 +7,11 @@
 * Camera
   * 上面選項 GameObject -> Align with View
 
-* Window -> AI -> Navigation
-  * Nav Mesh Agent
+* Window
+  * -> AI -> Navigation
+    * Nav Mesh Agent
+
+  * Sequencing -> Timeline
 
 * Animator
   * Blend Tree
@@ -17,13 +20,18 @@
 * Prefab
   * Prefab variant
 
+* Cinemachine
+
 ## Something new to me
 ```csharp
-  [RequireComponent(typeof(Health))]
+using UnityEngine.Playables;
+```
+```csharp
+[RequireComponent(typeof(Health))]
 ```
 ```csharp
 private void OnDrawGizmosSelected(){}
 ```
 ```csharp
- for (int i = 0; i < transform.childCount; i++){}
+for (int i = 0; i < transform.childCount; i++){}
 ```
