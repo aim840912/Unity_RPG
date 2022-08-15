@@ -24,6 +24,8 @@
 
 * Trail Renderer
 
+* Particle System
+
 ## Something new to me
 ```csharp
 using UnityEngine.Playables;
