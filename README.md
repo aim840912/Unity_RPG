@@ -22,6 +22,8 @@
 
 * Cinemachine
 
+* Trail Renderer
+
 ## Something new to me
 ```csharp
 using UnityEngine.Playables;
