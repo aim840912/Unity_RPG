@@ -3,6 +3,7 @@ using RPG.Movement;
 using RPG.Core;
 using System;
 using RPG.Saving;
+using RPG.Attribute;
 
 namespace RPG.Combat
 {
@@ -52,6 +53,10 @@ namespace RPG.Combat
             weapon.Spawn(rightHandTransfrom, leftHandTransfrom, animator);
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
 
         private void AttackBehaviour()
         {
