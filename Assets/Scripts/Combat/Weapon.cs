@@ -1,11 +1,9 @@
-using System;
-using RPG.Attribute;
-using RPG.Core;
 using UnityEngine;
+using RPG.Attribute;
 
 namespace RPG.Combat
 {
-    [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Make New Weapon", order = 0)]
+    [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
     public class Weapon : ScriptableObject
     {
         [SerializeField] AnimatorOverrideController animatorOverride = null;
@@ -16,6 +14,7 @@ namespace RPG.Combat
         [SerializeField] Projectile projectile = null;
 
         const string weaponName = "Weapon";
+
         public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
             DestroyOldWeapon(rightHand, leftHand);
@@ -44,11 +43,10 @@ namespace RPG.Combat
             if (oldWeapon == null)
             {
                 oldWeapon = leftHand.Find(weaponName);
-
             }
             if (oldWeapon == null) return;
 
-            oldWeapon.name = "DESTORYING";
+            oldWeapon.name = "DESTROYING";
             Destroy(oldWeapon.gameObject);
         }
 
@@ -65,15 +63,17 @@ namespace RPG.Combat
             return projectile != null;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator)
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator, float calculatedDamage)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, instigator, weaponDamage);
+            projectileInstance.SetTarget(target, instigator, calculatedDamage);
         }
+
         public float GetDamage()
         {
             return weaponDamage;
         }
+
         public float GetRange()
         {
             return weaponRange;

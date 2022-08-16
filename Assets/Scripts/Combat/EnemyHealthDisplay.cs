@@ -8,6 +8,7 @@ namespace RPG.Combat
     public class EnemyHealthDisplay : MonoBehaviour
     {
         Fighter fighter;
+
         private void Awake()
         {
             fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
@@ -21,7 +22,7 @@ namespace RPG.Combat
                 return;
             }
             Health health = fighter.GetTarget();
-            GetComponent<Text>().text = String.Format("{0:0.0}%", health.GetPercentage());
+            GetComponent<Text>().text = String.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
         }
     }
 }
